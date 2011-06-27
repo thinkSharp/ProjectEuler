@@ -964,6 +964,7 @@ let getSumOfDigitOfPow baseX times =
    sumPow
 
    // test 
+   // test 2
 
 let x = System.Convert.ToInt32("32")
 let y = System.Convert.ToInt32('3')
