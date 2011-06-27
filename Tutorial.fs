@@ -963,6 +963,8 @@ let getSumOfDigitOfPow baseX times =
                                   intVal + sum ) 0
    sumPow
 
+   // test 
+
 let x = System.Convert.ToInt32("32")
 let y = System.Convert.ToInt32('3')
 // Problem 16 -- the sum of the digit of result of 2^1000
