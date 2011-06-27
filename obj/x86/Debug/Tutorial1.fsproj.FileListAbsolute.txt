@@ -1,0 +1,6 @@
+C:\Source\Tutorial1\Tutorial1\bin\Debug\Tutorial1.XML
+C:\Source\Tutorial1\Tutorial1\bin\Debug\Tutorial1.exe
+C:\Source\Tutorial1\Tutorial1\bin\Debug\Tutorial1.pdb
+C:\Source\Tutorial1\Tutorial1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Source\Tutorial1\Tutorial1\obj\x86\Debug\Tutorial1.exe
+C:\Source\Tutorial1\Tutorial1\obj\x86\Debug\Tutorial1.pdb

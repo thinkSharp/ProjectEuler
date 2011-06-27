@@ -1,0 +1,4 @@
+C:\Source\ProjectEulerF#\ProjectEuler\bin\Debug\Tutorial1.XML
+C:\Source\ProjectEulerF#\ProjectEuler\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Source\ProjectEulerF#\ProjectEuler\obj\x86\Debug\Tutorial1.exe
+C:\Source\ProjectEulerF#\ProjectEuler\obj\x86\Debug\Tutorial1.pdb
