@@ -8,7 +8,7 @@
     <ProjectGuid>{1cbffeb6-0d8d-430b-8976-8fb8e3ed607b}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Tutorial1</RootNamespace>
-    <AssemblyName>Tutorial1</AssemblyName>
+    <AssemblyName>ProjectEuler</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <Name>ProjectEuler</Name>
@@ -72,6 +72,7 @@
     <Compile Include="Problem28.fs" />
     <Compile Include="Problem29.fs" />
     <Compile Include="Problem31.fs" />
+    <Compile Include="Problem50.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
