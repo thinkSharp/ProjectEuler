@@ -36,29 +36,49 @@ let getAllPossibleNum4Dig pre w x y z =
     //printf " 4 %d \n " y.Count
     y
 
-let getAllPossiblePanDigs (dig:string) =
+let getAllPossiblePrimePermutationDigs (dig:string) =
     //printf " %d \n " dig.Length
     let digVal = match dig.Length with
                  | x when x = 4 -> getAllPossibleNum4Dig "" (dig.Substring(0,1)) (dig.Substring(1,1)) (dig.Substring(2,1)) (dig.Substring(3,1)) 
                  | x when x = 3 -> getAllPossibleNum3Dig "" (dig.Substring(0,1)) (dig.Substring(1,1)) (dig.Substring(2,1)) 
                  | _ -> getAllPossibleNum2Dig "" (dig.Substring(0,1)) (dig.Substring(1,1)) 
-    printf "%s -- " dig
+    //printf "%s -- " dig
 
     digVal |> Set.filter(fun elm -> isPrimeSqrt(elm))
-           |> Set.iter(fun elm -> printf " %d " elm)
+           
 
-    printf "\n"
-
-let getequallydistributedPermutation (nums:int64 []) =
-    let rec innerLoop start skip next diff result =
-          match next < (nums.Length - 1) with
-           | true -> result
-           | _ -> let newResult = nums.[next] - nums.[start] = diff
-                  
-                  
+let getEquallyDistributedPermutation (nums:int64 []) =
+    let rec innerLoop fstnum sndnum tirdnum isDone =
+          match fstnum,sndnum,tirdnum, isDone with
+           | _,_,_, true -> None
+           | a,b,c, _ when nums.[b] - nums.[a] = nums.[c] - nums.[b] -> Some((nums.[a],nums.[b],nums.[c]))
+           | a,b,c, _ when nums.[c] - nums.[b] > nums.[b] - nums.[a] -> // now we need to shift b and 
+                                                                        //printf " In Second -- %d %d %d \n " a b c 
+                                                                        let isBEnd = (nums.Length - 1) - (b + 1) < 1
+                                                                        let isAEnd = (nums.Length - 1) - (a + 1) < 2
+                                                                        let newB = if not isBEnd then b + 1 elif not isAEnd then a + 2 else 0
+                                                                        let newA = if not isAEnd then a + 1 else a
+                                                                        let newC = if not isBEnd then b + 2 elif not isAEnd then a + 3 else 0
+                                                                        innerLoop newA newB newC isAEnd
+           | a,b, c,_ -> // new we need to shift c
+                        //printf " In Last -- %d %d %d \n " a b c 
+                        let isCEnd = (nums.Length - 1) - (c + 1) < 0
+                        let isBEnd = (nums.Length - 1) - (b + 1) < 1
+                        let isAEnd = (nums.Length - 1) - (a + 1) < 2
+                        let newC = if not isCEnd then c + 1 elif not isBEnd then b + 2 elif not isAEnd then a + 3 else 0
+                        let newB = if not isCEnd then b elif not isBEnd then b + 1 elif not isAEnd then a + 2 else 0
+                        let newA = if not isCEnd then a elif not isBEnd then a elif not isAEnd then a + 1 else 0
+                        innerLoop newA newB newC isAEnd
+    innerLoop 0 1 2 false
+                        
 
 let getPermutations limit =
-    [|1001 .. limit|] |> Array.iter(fun elm -> getAllPossiblePanDigs (elm.ToString()))
+    [|1001 .. limit|] |> Array.map(fun elm -> getAllPossiblePrimePermutationDigs (elm.ToString()))
+                      |> Array.filter(fun elm -> elm.Count >= 3)
+                      |> Array.map(fun elm -> getEquallyDistributedPermutation (elm |> Set.toArray))
+                      |> Array.filter(fun elm -> elm <> None)
+                      |> Array.iter(fun elm -> printf "%A \n" elm)
+
 
 // Problem 49 -- What 12 - digit number can be form by concatenating the three terms in this sequence
 
