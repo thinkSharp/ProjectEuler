@@ -72,6 +72,20 @@
     <Compile Include="Problem28.fs" />
     <Compile Include="Problem29.fs" />
     <Compile Include="Problem31.fs" />
+    <Compile Include="Problem36.fs" />
+    <Compile Include="Problem37.fs" />
+    <Compile Include="Problem38.fs" />
+    <Compile Include="Problem39.fs" />
+    <Compile Include="Problem40.fs" />
+    <Compile Include="Problem41.fs" />
+    <Compile Include="Problem42.fs" />
+    <Compile Include="Problem43.fs" />
+    <Compile Include="Problem44.fs" />
+    <Compile Include="Problem45.fs" />
+    <Compile Include="Problem46.fs" />
+    <Compile Include="Problem47.fs" />
+    <Compile Include="Problem48.fs" />
+    <Compile Include="Problem49.fs" />
     <Compile Include="Problem50.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
